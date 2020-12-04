@@ -44,7 +44,7 @@
 
 (defun day1/part-1-solution ()
   "Solution for day 1 part 1 of Advent of Code."
-  (let ((data (util/process-input-data-to-int-list "../day1/input.txt")))
+  (let ((data (util/process-input-data-to-int-list "day1/input.txt")))
     (loop for x in data
           do (loop for y in data
                        do (if (eq (+ x y) YEAR)
@@ -65,9 +65,12 @@
 
 (defun day1/part-2-solution ()
   "Solution for day 1 part 2 of Advent of Code."
-  (let ((data (util/process-input-data-to-int-list "../day1/input.txt")))
+  (let ((data (util/process-input-data-to-int-list "day1/input.txt")))
     (loop for x in data
           do (loop for y in data
                    do (loop for z in data
                             do (if (eq (+ x y z) YEAR)
                                    (print (format t "Day 1 part 2 solution: ~:d" (* x y z)))))))))
+
+;; The answer is 267520550.
+
