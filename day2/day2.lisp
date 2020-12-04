@@ -37,7 +37,19 @@
 
 (in-package #:advent-of-code-2020)
 
-(defun day2/part-1-solution ()
-  (let ((count 0) (input (util/get-input-data "day2/input.txt")))
-    (print input)))
+(defconstant +input_regex+ "([1-9]+)-([1-9]+) ([a-z]): ([a-z]+)")
+
+(defun day2/get-input-data ()
+  (let ((input (util/get-input-data "day2/input.txt")))
+    (loop for password in input
+          collect (ppcre:register-groups-bind (lower upper rule value)
+                      (+input_regex+ password :sharedp t)
+                    (list lower upper rule value)))))
+
+;; (defun day2/part-1-solution ()
+;;   (let ((count 0) (input (util/get-input-data "day2/input.txt")))
+;;     (loop for x in input
+;;           do (let ((data (ppcre:scan-to-strings +input_regex+ x)))
+;;                (let ((lower (aref data 0)) (upper (aref data 1)) (rule (aref data 2)))
+;;                  ())))))
 
