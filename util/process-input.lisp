@@ -2,9 +2,14 @@
 
 (in-package #:advent-of-code-2020)
 
-(defun process-input-data (path)
+(defun util/get-input-data (path)
+  "get-input-data reads each line into a list of strings."
   (let ((abs-path (merge-pathnames path)))
+    (uiop:read-file-lines abs-path)))
+
+(defun util/process-input-data-to-int-list (path)
+  "process-input-data-to-int-list takes each line of input and creates a list of integers."
     (mapcar (lambda (string)
               (parse-integer string))
-            (uiop:read-file-lines abs-path))))
+            (util/get-input-data path)))
   
