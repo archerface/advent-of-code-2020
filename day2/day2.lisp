@@ -38,5 +38,6 @@
 (in-package #:advent-of-code-2020)
 
 (defun day2/part-1-solution ()
-  (let ((count 0) (input (util/get-input-data "../day2/input.txt")))
+  (let ((count 0) (input (util/get-input-data "day2/input.txt")))
     (print input)))
+
